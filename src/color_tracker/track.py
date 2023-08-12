@@ -46,11 +46,13 @@ class Tracker:
     def getPixelPosition(self,image):
         hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
         threshold_image = cv2.inRange(hsv,self.color_lower,self.color_higher)
+        cv2.imshow('threshold_image',threshold_image)
         ys,xs = np.where(threshold_image == 255)
         if xs.size == 0 or ys.size == 0:
             return None,None
         x = np.mean(xs)
         y = np.mean(ys)
+        y = threshold_image.shape[0] - y
         return x,y
     
     def transformAxes(self,co_ordinates):

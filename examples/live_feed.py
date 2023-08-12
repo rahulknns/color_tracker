@@ -7,6 +7,7 @@ camera = cv.VideoCapture(0)
 try:
     while True:
         _,frame = camera.read()
+        frame = cv.flip(frame,1)
         x,y,z = tracker.getColourPosition(frame,z = 25)
         print(x,y,z)
         cv.imshow('frame',frame)
