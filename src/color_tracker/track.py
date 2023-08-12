@@ -46,7 +46,7 @@ class Tracker:
     def getPixelPosition(self,image):
         hsv = cv2.cvtColor(image,cv2.COLOR_BGR2HSV)
         threshold_image = cv2.inRange(hsv,self.color_lower,self.color_higher)
-        xs,ys = np.where(threshold_image == 255)
+        ys,xs = np.where(threshold_image == 255)
         if xs.size == 0 or ys.size == 0:
             return None,None
         x = np.mean(xs)

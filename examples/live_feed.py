@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 import color_tracker.track as track
 
-tracker = track.Tracker(np.array([110,100,100]),np.array([130,255,255]),zp = 300)
+tracker = track.Tracker(np.array([110,100,100]),np.array([130,255,255]),zp = 1343.1818181818182)
 camera = cv.VideoCapture(0)
 try:
     while True:
