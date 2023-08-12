@@ -50,9 +50,8 @@ class Tracker:
         ys,xs = np.where(threshold_image == 255)
         if xs.size == 0 or ys.size == 0:
             return None,None
-        x = np.mean(xs)
-        y = np.mean(ys)
-        y = threshold_image.shape[0] - y
+        x = np.mean(xs) - threshold_image.shape[1]/2
+        y =  threshold_image.shape[0]/2 - np.mean(ys) 
         return x,y
     
     def transformAxes(self,co_ordinates):
